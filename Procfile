@@ -1,0 +1,1 @@
+web: java -cp target/classes:target/dependency/* ar.edu.unq.arq2.heroku.Main
