@@ -195,12 +195,7 @@ common: &default_settings
     # this, you must provide any new value as an empty list is ignored.
     ignore_status_codes: 404
 
-  # Analytics Events are used for Histograms and Percentiles. Unaggregated data is collected
-  # for each web transaction and sent to the server on harvest.
-  analytics_events:
-
-    # Set to false to disable analytics events.
-    # Default is true.
+  transaction_events:
     enabled: true
 
     # Events are collected up to the configured amount. Afterwards, events are sampled to
@@ -254,11 +249,11 @@ common: &default_settings
 
 development:
   <<: *default_settings
-  app_name: Arq2 App Dev
+  app_name: arq2-app-dev
 
 test:
   <<: *default_settings
-  app_name: Arq2 App Test
+  app_name: arq2-app-test
 
 production:
   <<: *default_settings
@@ -266,3 +261,5 @@ production:
 staging:
   <<: *default_settings
   app_name: arq2-app-stg
+  transaction_tracer:
+    record_sql: raw
