@@ -5,6 +5,30 @@ public class CuentaBean {
     private String propietario;
     private double saldo;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CuentaBean)) return false;
+
+        CuentaBean that = (CuentaBean) o;
+
+        if (getNumero() != that.getNumero()) return false;
+        if (Double.compare(that.getSaldo(), getSaldo()) != 0) return false;
+        return getPropietario().equals(that.getPropietario());
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = getNumero();
+        result = 31 * result + getPropietario().hashCode();
+        temp = Double.doubleToLongBits(getSaldo());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
     public CuentaBean() {
     }
 
