@@ -1,14 +1,12 @@
 package ar.edu.unq.arq2;
 
-import javax.ws.rs.core.Application;
-
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
-
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 
-import ar.edu.unq.arq2.MyResource;
+import javax.ws.rs.core.Application;
+
+import static org.junit.Assert.assertEquals;
 
 public class MyResourceTest extends JerseyTest {
 
