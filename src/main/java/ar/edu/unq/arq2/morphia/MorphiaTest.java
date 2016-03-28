@@ -19,5 +19,16 @@ public class MorphiaTest {
 
         final Employee elmer = new Employee("Elmer Fudd", 50000.0);
         datastore.save(elmer);
+
+        final Employee daffy = new Employee("Daffy Duck", 40000.0);
+        datastore.save(daffy);
+
+        final Employee pepe = new Employee("Pepé Le Pew", 25000.0);
+        datastore.save(pepe);
+
+        elmer.getDirectReports().add(daffy);
+        elmer.getDirectReports().add(pepe);
+
+        datastore.save(elmer);
     }
 }
