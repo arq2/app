@@ -1,21 +1,26 @@
 package ar.edu.unq.arq2.heroku;
 
+import ar.edu.unq.arq2.morphia.MorphiaConfig;
+import ar.edu.unq.arq2.util.ConfigVar;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-/**
- * This class launches the web application in an embedded Jetty container. This is the entry point to your application. The Java
- * command that is used for launching should fire this main method.
- */
 public class Main {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
+        ConfigVar.initialize();
+        startWebServer();
+        startMongoClient();
+    }
+
+    private static void startMongoClient() {
+        MorphiaConfig.initialize(ConfigVar.get("MONGO_URI"));
+    }
+
+    private static void startWebServer() throws Exception {
         // The port that we should run on can be set into an environment variable
         // Look for that variable and default to 8080 if it isn't there.
-        String webPort = System.getenv("PORT");
-        if (webPort == null || webPort.isEmpty()) {
-            webPort = "8080";
-        }
+        String webPort = ConfigVar.get("PORT");
 
         final Server server = new Server(Integer.valueOf(webPort));
         final WebAppContext root = new WebAppContext();

@@ -5,16 +5,19 @@ import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.example.Employee;
 
-public class MorphiaTest {
-    public static void main(String[] args) {
-        final Morphia morphia = new Morphia();
+public class MorphiaConfig {
+    private static Morphia morphia;
+    private static MongoClient client;
 
-        // tell Morphia where to find your classes
-        // can be called multiple times with different packages or classes
+    public static void initialize(String mongoUri) {
+        morphia = new Morphia();
         morphia.mapPackage("org.mongodb.morphia.example");
+        client = new MongoClient(mongoUri);
+    }
 
+    public static void test() {
         // create the Datastore connecting to the default port on the local host
-        final Datastore datastore = morphia.createDatastore(new MongoClient(), "morphia_example");
+        final Datastore datastore = morphia.createDatastore(client, "morphia_example");
         datastore.ensureIndexes();
 
         final Employee elmer = new Employee("Elmer Fudd", 50000.0);
