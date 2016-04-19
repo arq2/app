@@ -17,8 +17,9 @@ public class MorphiaConfig {
     public static void initialize(String mongoUri) {
         morphia = new Morphia();
         morphia.mapPackage("org.mongodb.morphia.example");
-        database = new MongoClientURI(mongoUri).getDatabase();
-        client = new MongoClient(database);
+        MongoClientURI mongoClientURI = new MongoClientURI(mongoUri);
+        database = mongoClientURI.getDatabase();
+        client = new MongoClient(mongoClientURI);
     }
 
     public static void test() {
