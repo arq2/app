@@ -12,18 +12,20 @@ public class MorphiaConfig {
     private static Morphia morphia;
     private static MongoClient client;
     private static Logger log = LogManager.getRootLogger();
+    private static String database;
 
     public static void initialize(String mongoUri) {
         morphia = new Morphia();
         morphia.mapPackage("org.mongodb.morphia.example");
-        client = new MongoClient(new MongoClientURI(mongoUri));
+        database = new MongoClientURI(mongoUri).getDatabase();
+        client = new MongoClient(database);
     }
 
     public static void test() {
         // create the Datastore connecting to the default port on the local host
         log.info("morphia - empezando test");
 
-        final Datastore datastore = morphia.createDatastore(client, "morphia_example");
+        final Datastore datastore = morphia.createDatastore(client, database);
         datastore.ensureIndexes();
         log.info("morphia - creado el datastore");
 
