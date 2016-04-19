@@ -2,15 +2,23 @@ package ar.edu.unq.arq2.heroku;
 
 import ar.edu.unq.arq2.morphia.MorphiaConfig;
 import ar.edu.unq.arq2.util.ConfigVar;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 public class Main {
 
+    private static Logger log = LogManager.getRootLogger();
+
     public static void main(String[] args) throws Exception {
+        log.info("iniciando la aplicación");
         ConfigVar.initialize();
-        startWebServer();
+        log.info("inicializando las variables de entorno");
         startDatabaseClient();
+        log.info("lanzando la conexión a la base de datos");
+        startWebServer();
+        log.info("lanzando el web server");
     }
 
     private static void startDatabaseClient() {
