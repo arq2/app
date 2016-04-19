@@ -1,6 +1,7 @@
 package ar.edu.unq.arq2.morphia;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.mongodb.morphia.Datastore;
@@ -15,7 +16,7 @@ public class MorphiaConfig {
     public static void initialize(String mongoUri) {
         morphia = new Morphia();
         morphia.mapPackage("org.mongodb.morphia.example");
-        client = new MongoClient(mongoUri);
+        client = new MongoClient(new MongoClientURI(mongoUri));
     }
 
     public static void test() {
