@@ -2,7 +2,7 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
 <log4j:configuration debug="true">
     <appender name="le" class="com.logentries.log4j.LogentriesAppender">
-        <param name="Token" value="194e3d96-81ad-4343-a77b-6fc81ade0a02"/>
+        <param name="Token" value="7d27150d-4297-4362-8acd-e5131f2f6fb1"/>
         <param name="Ssl" value="false"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{EEE MMM dd HH:mm:ss ZZZ yyyy}, (%F:%L) %-5p: %m"/>

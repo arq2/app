@@ -10,10 +10,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
         ConfigVar.initialize();
         startWebServer();
-        startMongoClient();
+        startDatabaseClient();
     }
 
-    private static void startMongoClient() {
+    private static void startDatabaseClient() {
         MorphiaConfig.initialize(ConfigVar.get("MONGO_URI"));
     }
 

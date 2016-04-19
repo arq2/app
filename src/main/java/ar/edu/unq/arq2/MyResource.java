@@ -1,5 +1,6 @@
 package ar.edu.unq.arq2;
 
+import ar.edu.unq.arq2.morphia.MorphiaConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -26,6 +27,7 @@ public class MyResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
         log.info("en /myresource");
+        MorphiaConfig.test();
         return "Hello, Heroku!";
     }
 }
