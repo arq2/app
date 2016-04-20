@@ -9,6 +9,7 @@ public class ConfigVar {
     public static void initialize() {
         DEFAULTS.put("PORT", "8080");
         DEFAULTS.put("MONGO_URI", "mongodb://localhost:27017/app");
+        DEFAULTS.put("ENV", "development");
     }
 
     public static String get(String variableName) {

@@ -21,3 +21,4 @@
 
 * `MONGO_URI`: el string de conexión a MongoDB, en la forma `mongodb://[user@password]host:post/database`.
 * `PORT`: el puerto en donde se levanta el server.
+* `ENV`: el entorno en donde va a correr la aplicación: por defecto `development`, y en los servidores de Heroku `production` y `staging` para cada respectivo servidor.
