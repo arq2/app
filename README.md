@@ -22,3 +22,18 @@
 * `MONGO_URI`: el string de conexión a MongoDB, en la forma `mongodb://[user@password]host:post/database`.
 * `PORT`: el puerto en donde se levanta el server.
 * `ENV`: el entorno en donde va a correr la aplicación: por defecto `development`, y en los servidores de Heroku `production` y `staging` para cada respectivo servidor.
+
+## Pruebas de API:
+
+* Url: `http://localhost:8080/arq2/api/v1/products`
+* GET -> json con lista de productos
+* POST: agregar header `Content-Type` con valor `application/json` y el cuerpo del request es:
+
+```
+{
+    "id": "1",
+    "description": "lalalala",
+    "name": "mi producto",
+    "value": "10"
+}
+```
