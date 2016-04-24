@@ -1,53 +1,58 @@
 package ar.edu.unq.arq2.heroku;
 
-import ar.edu.unq.arq2.morphia.MorphiaConfig;
-import ar.edu.unq.arq2.util.ConfigVar;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.webapp.WebAppContext;
+import ar.edu.unq.arq2.JerseyApplication;
+import ar.edu.unq.arq2.util.Environment;
+import io.undertow.Handlers;
+import io.undertow.Undertow;
+import io.undertow.server.handlers.PathHandler;
+import io.undertow.servlet.Servlets;
+import io.undertow.servlet.api.DeploymentInfo;
+import io.undertow.servlet.api.DeploymentManager;
+import org.glassfish.jersey.servlet.ServletContainer;
+import org.jboss.weld.environment.servlet.Listener;
+
+import javax.servlet.ServletException;
+
+import static io.undertow.servlet.Servlets.listener;
+import static io.undertow.servlet.Servlets.servlet;
 
 public class Main {
+    private static Undertow server;
 
-    private static Logger log = LogManager.getRootLogger();
-
-    public static void main(String[] args) throws Exception {
-        log.info("iniciando la aplicación");
-        ConfigVar.initialize();
-        log.info("inicializando las variables de entorno");
-        startDatabaseClient();
-        log.info("lanzando la conexión a la base de datos");
-        startWebServer();
-        log.info("lanzando el web server");
+    public static void main(String[] args) throws ServletException {
+        startContainer();
     }
 
-    private static void startDatabaseClient() {
-        MorphiaConfig.initialize(ConfigVar.get("MONGO_URI"));
+    public static void stopContainer(){
+        server.stop();
     }
 
-    private static void startWebServer() throws Exception {
-        // The port that we should run on can be set into an environment variable
-        // Look for that variable and default to 8080 if it isn't there.
-        String webPort = ConfigVar.get("PORT");
+    public static void startContainer() throws ServletException {
+        int port = Environment.portNumber();
+        DeploymentInfo servletBuilder = Servlets.deployment();
 
-        final Server server = new Server(Integer.valueOf(webPort));
-        final WebAppContext root = new WebAppContext();
+        servletBuilder
+                .setClassLoader(Main.class.getClassLoader())
+                .setContextPath("/arq2")
+                .setDeploymentName("arq2.war")
+                .addListeners(listener(Listener.class))
+                .addServlets(servlet("jerseyServlet", ServletContainer.class)
+                        .setLoadOnStartup(1)
+                        .addInitParam("javax.ws.rs.Application", JerseyApplication.class.getName())
+                        .addMapping("/api/*"));
 
-        root.setContextPath("/");
-        // Parent loader priority is a class loader setting that Jetty accepts.
-        // By default Jetty will behave like most web containers in that it will
-        // allow your application to replace non-server libraries that are part of the
-        // container. Setting parent loader priority to true changes this behavior.
-        // Read more here: http://wiki.eclipse.org/Jetty/Reference/Jetty_Classloading
-        root.setParentLoaderPriority(true);
+        DeploymentManager manager = Servlets.defaultContainer().addDeployment(servletBuilder);
+        manager.deploy();
+        PathHandler path = Handlers.path(Handlers.redirect("/arq2"))
+                .addPrefixPath("/arq2", manager.start());
 
-        final String webappDirLocation = "src/main/webapp/";
-        root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
-        root.setResourceBase(webappDirLocation);
-
-        server.setHandler(root);
+        server =
+                Undertow
+                        .builder()
+                        .addHttpListener(port, "localhost")
+                        .setHandler(path)
+                        .build();
 
         server.start();
-        server.join();
     }
 }

@@ -23,7 +23,7 @@ public class MorphiaConfig {
     }
 
     public static void test() {
-        // create the Datastore connecting to the default port on the local host
+        // create the Datastore connecting to the default portNumber on the local host
         log.info("morphia - empezando test");
 
         final Datastore datastore = morphia.createDatastore(client, database);
