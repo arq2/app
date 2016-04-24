@@ -2,6 +2,7 @@ package ar.edu.unq.arq2.producers;
 
 import ar.edu.unq.arq2.producers.qualifiers.InjectableProperties;
 import ar.edu.unq.arq2.producers.qualifiers.Property;
+import ar.edu.unq.arq2.util.ConfigVar;
 import ar.edu.unq.arq2.util.ObjectMapperFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
@@ -25,8 +26,8 @@ public class ApplicationProducer {
 
     @Produces
     @ApplicationScoped
-    public Datastore datastore(@Property("mongodb.uri") String mongoDbUri) throws Exception {
-//        String mongoDbUri = ConfigVar.get("MONGO_URI");
+    public Datastore datastore() throws Exception {
+        String mongoDbUri = ConfigVar.get("MONGO_URI");
         MongoClientURI uri = new MongoClientURI(mongoDbUri);
         String database = uri.getDatabase();
         final MongoClient mongoClient = new MongoClient(uri);
