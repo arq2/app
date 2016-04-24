@@ -1,6 +1,7 @@
 package ar.edu.unq.arq2.heroku;
 
 import ar.edu.unq.arq2.JerseyApplication;
+import ar.edu.unq.arq2.util.ConfigVar;
 import ar.edu.unq.arq2.util.Environment;
 import io.undertow.Handlers;
 import io.undertow.Undertow;
@@ -49,7 +50,7 @@ public class Main {
         server =
                 Undertow
                         .builder()
-                        .addHttpListener(port, "localhost")
+                        .addHttpListener(port, ConfigVar.get("HOST"))
                         .setHandler(path)
                         .build();
 

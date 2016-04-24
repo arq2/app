@@ -7,6 +7,7 @@ public class ConfigVar {
     public static Map<String, String> DEFAULTS = new HashMap<>();
 
     static {
+        DEFAULTS.put("HOST", "localhost");
         DEFAULTS.put("PORT", "8080");
         DEFAULTS.put("MONGO_URI", "mongodb://localhost:27017/app");
         DEFAULTS.put("ENV", "development");
