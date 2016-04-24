@@ -31,7 +31,6 @@
 
 ```
 {
-    "id": "1",
     "description": "lalalala",
     "name": "mi producto",
     "value": "10"
