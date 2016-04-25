@@ -17,11 +17,18 @@
 
 **Nota**: Al usar `heroku local` se utiliza exactamente la misma forma de ejecución que Heroku utiliza en la versión deployada, con diferente configuración.
 
+### Empaquetar JAR
+
+Estamos utilizando el plugin Assembly de Maven.
+
+`mvn clean compile assembly:single`
+
 ### Variables de entorno:
 
 * `MONGO_URI`: el string de conexión a MongoDB, en la forma `mongodb://[user@password]host:post/database`.
 * `PORT`: el puerto en donde se levanta el server.
 * `ENV`: el entorno en donde va a correr la aplicación: por defecto `development`, y en los servidores de Heroku `production` y `staging` para cada respectivo servidor.
+* `HOST`: el host en el que va a levanta
 
 ## Pruebas de API:
 
@@ -36,3 +43,7 @@
     "value": "10"
 }
 ```
+
+## Documentación de desarrollo
+
+### Crear un resource REST 
