@@ -1,6 +1,7 @@
 package ar.edu.unq.arq2.api.v1.endpoints;
 
 
+import ar.edu.unq.arq2.api.v1.resources.Paging;
 import ar.edu.unq.arq2.api.v1.converters.ShopConverter;
 import ar.edu.unq.arq2.api.v1.converters.ShopResourceConverter;
 import ar.edu.unq.arq2.api.v1.resources.ShopResource;
@@ -18,6 +19,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import static ar.edu.unq.arq2.api.Envelop.newEnvelop;
+import static ar.edu.unq.arq2.api.PaginatedResponse.paginate;
 import static javax.ws.rs.core.Response.created;
 import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
@@ -37,10 +39,11 @@ public class ShopEndpoint {
     private ShopConverter shopConverter;
 
     @GET
-    public Response findAll(){
-        final List products = repository.findAll();
-        final List resources = shopResourceConverter.convert(products);
-        return ok(newEnvelop().items(resources).build()).build();
+    public Response findAll(@QueryParam("offset") int offset, @QueryParam("limit") int limit) {
+        long count = repository.count();
+        final List shops = repository.findAll(offset, limit);
+        final List resources = shopResourceConverter.convert(shops);
+        return ok(paginate(resources, new Paging(offset, limit, count))).build();
     }
 
     @GET
@@ -58,7 +61,7 @@ public class ShopEndpoint {
     @POST
     public Response create(@NotNull @Valid ShopResource shopResource) throws URISyntaxException {
         Shop shop = repository.save(shopConverter.convert(shopResource));
-        return created(new URI("/api/v1/products/" + shop.getId())).entity(newEnvelop().item(shopResourceConverter.convert(shop)).build()).build();
+        return created(new URI("/api/v1/shops/" + shop.getId())).build();
     }
 
     @PUT

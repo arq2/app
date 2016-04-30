@@ -2,6 +2,7 @@ package ar.edu.unq.arq2.api.v1.endpoints;
 
 import ar.edu.unq.arq2.api.v1.converters.FoundPricesConverter;
 import ar.edu.unq.arq2.api.v1.converters.FoundPricesResourceConverter;
+import ar.edu.unq.arq2.api.v1.resources.FoundPricesResource;
 import ar.edu.unq.arq2.entities.FoundPrices;
 import ar.edu.unq.arq2.entities.FoundPricesRepository;
 
@@ -54,4 +55,9 @@ public class FoundPricesEndpoint {
         return ok(newEnvelop().item(foundPricesResourceConverter.convert(foundPrices)).build()).build();
     }
 
+    @POST
+    public Response create(@NotNull @Valid FoundPricesResource foundPricesResource) throws URISyntaxException {
+        FoundPrices foundPrice = repository.save(foundPricesConverter.convert(foundPricesResource));
+        return created(new URI("/api/v1/found_prices/" + foundPrice.getId())).build();
+    }
 }

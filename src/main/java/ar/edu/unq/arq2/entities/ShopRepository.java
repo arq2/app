@@ -13,7 +13,6 @@ import java.util.List;
 @ApplicationScoped
 public class ShopRepository {
 
-
     @Inject
     private Datastore datastore;
 
@@ -31,8 +30,8 @@ public class ShopRepository {
         return datastore.findAndDelete(datastore.createQuery(Shop.class).filter("_id ", new ObjectId(id)));
     }
 
-    public List findAll(){
-        return datastore.find(Shop.class).asList();
+    public List findAll(Integer offset, Integer limit){
+        return datastore.find(Shop.class).offset(offset).limit(limit).asList();
     }
 
     public Shop update(String id, Shop shop){
@@ -49,4 +48,7 @@ public class ShopRepository {
         return query.get();
     }
 
+    public long count() {
+        return datastore.createQuery(Shop.class).countAll();
+    }
 }

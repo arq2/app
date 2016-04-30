@@ -1,17 +1,17 @@
 package ar.edu.unq.arq2.api.v1.resources;
 
-import ar.edu.unq.arq2.entities.Shop;
-
 import javax.validation.constraints.NotNull;
 
 public class ShopResource {
 
     private String id;
+
     @NotNull(message = "name cannot be null")
     private String name;
-    @NotNull(message = "description cannot be null")
+
     private String address;
 
+    @NotNull(message = "location cannot be null")
     private String location;
 
     private Double latitude;

@@ -8,8 +8,7 @@ public class Envelop<T> {
     private List<T> items;
     private ErrorMessage error;
 
-    public Envelop() {
-    }
+    public Envelop() {}
 
     private Envelop(Builder builder) {
         setUri(builder.uri);
