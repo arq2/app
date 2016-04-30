@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/arq2/app.png?label=ready&title=Ready)](https://waffle.io/arq2/app)
 # Mirar para Cuidar
 
 ## Setup ambiente
