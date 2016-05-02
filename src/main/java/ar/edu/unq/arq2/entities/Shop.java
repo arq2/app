@@ -1,6 +1,5 @@
 package ar.edu.unq.arq2.entities;
 
-import ar.edu.unq.arq2.api.v1.resources.ShopResource;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 

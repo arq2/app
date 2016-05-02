@@ -1,10 +1,7 @@
 package ar.edu.unq.arq2.entities;
 
-
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-
-import java.util.Date;
 
 @Entity
 public class FoundPrices {

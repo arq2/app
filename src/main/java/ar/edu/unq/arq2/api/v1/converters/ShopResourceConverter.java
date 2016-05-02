@@ -1,6 +1,5 @@
 package ar.edu.unq.arq2.api.v1.converters;
 
-
 import ar.edu.unq.arq2.api.v1.resources.ShopResource;
 import ar.edu.unq.arq2.entities.Shop;
 
@@ -22,7 +21,7 @@ public class ShopResourceConverter {
                 .build();
     }
 
-    public List convert(List<Shop> shops){
+    public List<ShopResource> convert(List<Shop> shops){
         return shops.stream().map(this::convert).collect(toList());
     }
 }

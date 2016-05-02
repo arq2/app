@@ -17,9 +17,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import static ar.edu.unq.arq2.api.Envelop.newEnvelop;
-import static javax.ws.rs.core.Response.created;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
+import static javax.ws.rs.core.Response.*;
 
 @Produces("application/json")
 @Path("/v1/found_prices")

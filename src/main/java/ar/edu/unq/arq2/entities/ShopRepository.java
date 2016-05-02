@@ -30,7 +30,7 @@ public class ShopRepository {
         return datastore.findAndDelete(datastore.createQuery(Shop.class).filter("_id ", new ObjectId(id)));
     }
 
-    public List findAll(Integer offset, Integer limit){
+    public List<Shop> findAll(Integer offset, Integer limit){
         return datastore.find(Shop.class).offset(offset).limit(limit).asList();
     }
 

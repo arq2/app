@@ -1,9 +1,8 @@
 package ar.edu.unq.arq2.api.v1.endpoints;
 
-
-import ar.edu.unq.arq2.api.v1.resources.Paging;
 import ar.edu.unq.arq2.api.v1.converters.ShopConverter;
 import ar.edu.unq.arq2.api.v1.converters.ShopResourceConverter;
+import ar.edu.unq.arq2.api.v1.resources.Paging;
 import ar.edu.unq.arq2.api.v1.resources.ShopResource;
 import ar.edu.unq.arq2.entities.Shop;
 import ar.edu.unq.arq2.entities.ShopRepository;
@@ -20,9 +19,7 @@ import java.util.List;
 
 import static ar.edu.unq.arq2.api.Envelop.newEnvelop;
 import static ar.edu.unq.arq2.api.PaginatedResponse.paginate;
-import static javax.ws.rs.core.Response.created;
-import static javax.ws.rs.core.Response.ok;
-import static javax.ws.rs.core.Response.status;
+import static javax.ws.rs.core.Response.*;
 
 @Produces("application/json")
 @Path("/v1/shops")
@@ -41,8 +38,8 @@ public class ShopEndpoint {
     @GET
     public Response findAll(@QueryParam("offset") int offset, @QueryParam("limit") int limit) {
         long count = repository.count();
-        final List shops = repository.findAll(offset, limit);
-        final List resources = shopResourceConverter.convert(shops);
+        List<Shop> shops = repository.findAll(offset, limit);
+        List<ShopResource> resources = shopResourceConverter.convert(shops);
         return ok(paginate(resources, new Paging(offset, limit, count))).build();
     }
 
