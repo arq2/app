@@ -1,9 +1,10 @@
 package ar.edu.unq.arq2.api.v1.endpoints;
 
-import ar.edu.unq.arq2.api.v1.converters.FoundPricesConverter;
-import ar.edu.unq.arq2.api.v1.converters.FoundPricesResourceConverter;
-import ar.edu.unq.arq2.api.v1.resources.FoundPricesResource;
-import ar.edu.unq.arq2.entities.FoundPrices;
+import ar.edu.unq.arq2.api.v1.converters.FoundPriceConverter;
+import ar.edu.unq.arq2.api.v1.converters.FoundPriceResourceConverter;
+import ar.edu.unq.arq2.api.v1.resources.FoundPriceResource;
+import ar.edu.unq.arq2.api.v1.resources.Paging;
+import ar.edu.unq.arq2.entities.FoundPrice;
 import ar.edu.unq.arq2.entities.FoundPricesRepository;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -16,7 +17,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import static ar.edu.unq.arq2.api.Envelop.newEnvelop;
+import static ar.edu.unq.arq2.api.Envelop.item;
+import static ar.edu.unq.arq2.api.PaginatedResponse.paginate;
 import static javax.ws.rs.core.Response.*;
 
 @Produces("application/json")
@@ -24,38 +26,38 @@ import static javax.ws.rs.core.Response.*;
 @ApplicationScoped
 public class FoundPricesEndpoint {
 
-
     @Inject
     private FoundPricesRepository repository;
 
     @Inject
-    private FoundPricesResourceConverter foundPricesResourceConverter;
+    private FoundPriceResourceConverter foundPriceResourceConverter;
 
     @Inject
-    private FoundPricesConverter foundPricesConverter;
+    private FoundPriceConverter foundPriceConverter;
 
     @GET
-    public Response findAll(){
-        final List foundPricesList = repository.findAll();
-        final List resources = foundPricesResourceConverter.convert(foundPricesList);
-        return ok(newEnvelop().items(resources).build()).build();
+    public Response findAll(@QueryParam("offset") int offset, @QueryParam("limit") int limit){
+        Long count = repository.count();
+        List<FoundPrice> foundPricesList = repository.findAll(offset, limit);
+        List<FoundPriceResource> resources = foundPriceResourceConverter.convert(foundPricesList);
+        return ok(paginate(resources, new Paging(offset, limit, count))).build();
     }
 
     @GET
     @Path("/{id}")
     public Response findById(@PathParam("id") @NotNull String id){
-        final FoundPrices foundPrices = repository.find(id);
+        final FoundPrice foundPrice = repository.find(id);
 
-        if(foundPrices == null){
+        if(foundPrice == null){
             return status(404).build();
         }
 
-        return ok(newEnvelop().item(foundPricesResourceConverter.convert(foundPrices)).build()).build();
+        return ok(item(foundPriceResourceConverter.convert(foundPrice))).build();
     }
 
     @POST
-    public Response create(@NotNull @Valid FoundPricesResource foundPricesResource) throws URISyntaxException {
-        FoundPrices foundPrice = repository.save(foundPricesConverter.convert(foundPricesResource));
+    public Response create(@NotNull @Valid FoundPriceResource foundPriceResource) throws URISyntaxException {
+        FoundPrice foundPrice = repository.save(foundPriceConverter.convert(foundPriceResource));
         return created(new URI("/api/v1/found_prices/" + foundPrice.getId())).build();
     }
 }

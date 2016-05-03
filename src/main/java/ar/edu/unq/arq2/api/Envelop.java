@@ -17,8 +17,16 @@ public class Envelop<T> {
         setError(builder.error);
     }
 
+    private Envelop(T item) {
+        setItem(item);
+    }
+
     public static Builder newEnvelop() {
         return new Builder();
+    }
+
+    public static <T> Envelop<T> item(T item) {
+        return new Envelop<T>(item);
     }
 
     public String getUri() {

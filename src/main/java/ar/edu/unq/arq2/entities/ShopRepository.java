@@ -23,14 +23,14 @@ public class ShopRepository {
     }
 
     public Shop find(String id){
-        return datastore.createQuery(Shop.class).filter("_id ", new ObjectId(id)).get();
+        return filterById(id).get();
     }
 
     public Shop delete(String id){
-        return datastore.findAndDelete(datastore.createQuery(Shop.class).filter("_id ", new ObjectId(id)));
+        return datastore.findAndDelete(filterById(id));
     }
 
-    public List<Shop> findAll(Integer offset, Integer limit){
+    public List<Shop> findAll(Integer offset, Integer limit) {
         return datastore.find(Shop.class).offset(offset).limit(limit).asList();
     }
 
@@ -43,12 +43,20 @@ public class ShopRepository {
                 .set("address", shop.getAddress())
                 .set("location", shop.getLocation())
                 ;
-        final Query<Shop> query = datastore.createQuery(Shop.class).filter("_id ", new ObjectId(id));
+        final Query<Shop> query = filterById(id);
         datastore.update(query, updateOperations);
         return query.get();
     }
 
     public long count() {
-        return datastore.createQuery(Shop.class).countAll();
+        return getQuery().countAll();
+    }
+
+    private Query<Shop> getQuery() {
+        return datastore.createQuery(Shop.class);
+    }
+
+    private Query<Shop> filterById(String id) {
+        return getQuery().filter("_id ", new ObjectId(id));
     }
 }

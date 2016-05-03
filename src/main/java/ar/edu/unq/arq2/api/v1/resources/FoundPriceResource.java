@@ -1,23 +1,27 @@
-package ar.edu.unq.arq2.entities;
+package ar.edu.unq.arq2.api.v1.resources;
 
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
-public class FoundPrices {
+public class FoundPriceResource {
 
-
-    @Id
     private String id;
+
+    @NotNull(message = "shop id cannot be null")
     private String shop_id;
+
+    @NotNull(message = "product id cannot be null")
     private String product_id;
+
+    @NotNull(message = "price cannot be null")
     private Double price;
+
+    @NotNull(message = "datetime cannot be null")
     private String datetime;
 
-    public FoundPrices() {
+    public FoundPriceResource() {
     }
 
-    private FoundPrices(Builder builder) {
+    private FoundPriceResource(Builder builder) {
         setId(builder.id);
         setShop_id(builder.shop_id);
         setProduct_id(builder.product_id);
@@ -25,7 +29,7 @@ public class FoundPrices {
         setDatetime(builder.datetime);
     }
 
-    public static Builder newFoundPrices() {
+    public static Builder newFoundPricesResource() {
         return new Builder();
     }
 
@@ -69,7 +73,8 @@ public class FoundPrices {
         this.datetime = datetime;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////77
+
 
     public static final class Builder {
         private String id;
@@ -106,8 +111,8 @@ public class FoundPrices {
             return this;
         }
 
-        public FoundPrices build() {
-            return new FoundPrices(this);
+        public FoundPriceResource build() {
+            return new FoundPriceResource(this);
         }
     }
 }

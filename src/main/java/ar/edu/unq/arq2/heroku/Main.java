@@ -1,11 +1,8 @@
 package ar.edu.unq.arq2.heroku;
 
 import ar.edu.unq.arq2.JerseyApplication;
-import ar.edu.unq.arq2.util.ConfigVar;
 import ar.edu.unq.arq2.util.Environment;
-import io.undertow.Handlers;
 import io.undertow.Undertow;
-import io.undertow.server.handlers.PathHandler;
 import io.undertow.servlet.Servlets;
 import io.undertow.servlet.api.DeploymentInfo;
 import io.undertow.servlet.api.DeploymentManager;
@@ -34,7 +31,7 @@ public class Main {
 
         servletBuilder
                 .setClassLoader(Main.class.getClassLoader())
-                .setContextPath("/arq2")
+                .setContextPath("/")
                 .setDeploymentName("arq2.war")
                 .addListeners(listener(Listener.class))
                 .addServlets(servlet("jerseyServlet", ServletContainer.class)
@@ -44,14 +41,12 @@ public class Main {
 
         DeploymentManager manager = Servlets.defaultContainer().addDeployment(servletBuilder);
         manager.deploy();
-        PathHandler path = Handlers.path(Handlers.redirect("/arq2"))
-                .addPrefixPath("/arq2", manager.start());
 
         server =
                 Undertow
                         .builder()
-                        .addHttpListener(port, ConfigVar.get("HOST"))
-                        .setHandler(path)
+                        .addHttpListener(port, Environment.host())
+                        .setHandler(manager.start())
                         .build();
 
         server.start();

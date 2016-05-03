@@ -9,7 +9,7 @@ public class PaginatedResponse<T> extends Envelop<T> {
     private Paging paging;
 
     public static <T> PaginatedResponse paginate(List<T> items, Paging paging) {
-        return new PaginatedResponse(items, paging);
+        return new PaginatedResponse<>(items, paging);
     }
 
     public PaginatedResponse() {}

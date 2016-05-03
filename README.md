@@ -1,13 +1,14 @@
-[![Stories in Ready](https://badge.waffle.io/arq2/app.png?label=ready&title=Ready)](https://waffle.io/arq2/app)
 # Mirar para Cuidar
+
+[![Stories in Ready](https://badge.waffle.io/arq2/app.png?label=ready&title=Ready)](https://waffle.io/arq2/app)
 
 ## Setup ambiente
 
 ### Pre-requisitos
 
-*. [Heroku Toolbelt](https://toolbelt.heroku.com/)
-*. [MongoDB](http://www.mongodb.org/)
-*  [Maven](https://maven.apache.org/)
+* [Heroku Toolbelt](https://toolbelt.heroku.com/)
+* [MongoDB](http://www.mongodb.org/)
+* [Maven](https://maven.apache.org/)
 
 ### Setup del proyecto
 

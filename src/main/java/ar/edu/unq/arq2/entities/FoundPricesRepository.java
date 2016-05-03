@@ -1,6 +1,5 @@
 package ar.edu.unq.arq2.entities;
 
-
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
@@ -12,38 +11,45 @@ import java.util.List;
 
 public class FoundPricesRepository {
 
-
     @Inject
     private Datastore datastore;
 
-    public FoundPrices save(FoundPrices foundPrices){
-        final Key<FoundPrices> productKey = datastore.save(foundPrices);
-        foundPrices.setId((String) productKey.getId());
-        return foundPrices;
+    public FoundPrice save(FoundPrice foundPrice){
+        final Key<FoundPrice> productKey = datastore.save(foundPrice);
+        foundPrice.setId((String) productKey.getId());
+        return foundPrice;
     }
 
-    public FoundPrices find(String id){
-        return datastore.createQuery(FoundPrices.class).filter("_id ", new ObjectId(id)).get();
+    public FoundPrice find(String id){
+        return getQuery().filter("_id ", new ObjectId(id)).get();
     }
 
-    public FoundPrices delete(String id){
-        return datastore.findAndDelete(datastore.createQuery(FoundPrices.class).filter("_id ", new ObjectId(id)));
+    public FoundPrice delete(String id){
+        return datastore.findAndDelete(getQuery().filter("_id ", new ObjectId(id)));
     }
 
-    public List findAll(){
-        return datastore.find(FoundPrices.class).asList();
+    public List<FoundPrice> findAll(Integer offset, Integer limit) {
+        return datastore.find(FoundPrice.class).offset(offset).limit(limit).asList();
     }
 
-    public FoundPrices update(String id, FoundPrices foundPrices){
-        final UpdateOperations<FoundPrices> updateOperations = datastore.createUpdateOperations(FoundPrices.class)
-                .set("shop_id", foundPrices.getShop_id())
-                .set("product_id",foundPrices.getProduct_id())
-                .set("price", foundPrices.getPrice())
-                .set("datetime", foundPrices.getDatetime())
+    public FoundPrice update(String id, FoundPrice foundPrice){
+        final UpdateOperations<FoundPrice> updateOperations = datastore.createUpdateOperations(FoundPrice.class)
+                .set("shop_id", foundPrice.getShop_id())
+                .set("product_id", foundPrice.getProduct_id())
+                .set("price", foundPrice.getPrice())
+                .set("datetime", foundPrice.getDatetime())
 
                 ;
-        final Query<FoundPrices> query = datastore.createQuery(FoundPrices.class).filter("_id ", new ObjectId(id));
+        final Query<FoundPrice> query = getQuery().filter("_id ", new ObjectId(id));
         datastore.update(query, updateOperations);
         return query.get();
+    }
+
+    public Long count() {
+        return getQuery().countAll();
+    }
+
+    private Query<FoundPrice> getQuery() {
+        return datastore.createQuery(FoundPrice.class);
     }
 }

@@ -17,7 +17,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import static ar.edu.unq.arq2.api.Envelop.newEnvelop;
+import static ar.edu.unq.arq2.api.Envelop.item;
 import static ar.edu.unq.arq2.api.PaginatedResponse.paginate;
 import static javax.ws.rs.core.Response.*;
 
@@ -37,7 +37,7 @@ public class ShopEndpoint {
 
     @GET
     public Response findAll(@QueryParam("offset") int offset, @QueryParam("limit") int limit) {
-        long count = repository.count();
+        Long count = repository.count();
         List<Shop> shops = repository.findAll(offset, limit);
         List<ShopResource> resources = shopResourceConverter.convert(shops);
         return ok(paginate(resources, new Paging(offset, limit, count))).build();
@@ -52,7 +52,7 @@ public class ShopEndpoint {
             return status(404).build();
         }
 
-        return ok(newEnvelop().item(shopResourceConverter.convert(shop)).build()).build();
+        return ok(item(shopResourceConverter.convert(shop))).build();
     }
 
     @POST
@@ -65,7 +65,7 @@ public class ShopEndpoint {
     @Path("/{id}")
     public Response update(@NotNull @Valid ShopResource shopResource, @PathParam("id") @NotNull  String id) throws URISyntaxException {
         Shop shop = repository.update(id, shopConverter.convert(shopResource));
-        return ok(newEnvelop().item(shopResourceConverter.convert(shop)).build()).build();
+        return ok(item(shopResourceConverter.convert(shop))).build();
     }
 
     @DELETE
@@ -77,6 +77,6 @@ public class ShopEndpoint {
             return status(404).build();
         }
 
-        return ok(newEnvelop().item(shopResourceConverter.convert(shop)).build()).build();
+        return ok(item(shopResourceConverter.convert(shop))).build();
     }
 }
