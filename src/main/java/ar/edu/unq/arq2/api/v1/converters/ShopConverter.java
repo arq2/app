@@ -10,13 +10,13 @@ import static ar.edu.unq.arq2.entities.Shop.newShop;
 @ApplicationScoped
 public class ShopConverter {
 
-    public Shop convert(ShopResource shoptResource){
+    public Shop convert(ShopResource shopResource){
         return newShop()
-                .name(shoptResource.getName())
-                .latitude(shoptResource.getLatitude())
-                .longitude(shoptResource.getLongitude())
-                .location(shoptResource.getLocation())
-                .address(shoptResource.getAddress())
+                .name(shopResource.getName())
+                .latitude(shopResource.getLatitude())
+                .longitude(shopResource.getLongitude())
+                .location(shopResource.getLocation())
+                .address(shopResource.getAddress())
                 .build();
     }
 }

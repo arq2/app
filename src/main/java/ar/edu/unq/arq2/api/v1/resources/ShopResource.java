@@ -18,11 +18,11 @@ public class ShopResource {
 
     private Double longitude;
 
-    public ShopResource() {
-    }
+    public ShopResource() {}
 
     private ShopResource(BuilderShop builder) {
-       setId(builder.id);
+        setId(builder.id);
+        setName(builder.name);
         setAddress(builder.address);
         setLocation(builder.location);
         setLatitude(builder.latitude);
@@ -32,7 +32,6 @@ public class ShopResource {
     public static BuilderShop newShopResource() {
         return new BuilderShop();
     }
-
 
     public String getId() {
         return id;
@@ -82,7 +81,6 @@ public class ShopResource {
         this.longitude = longitude;
     }
 
-
     /////////////////////////////////////////////////////////////////////
 
     public static final class BuilderShop {
@@ -124,8 +122,6 @@ public class ShopResource {
             this.longitude = longitude;
             return this;
         }
-
-
 
         public ShopResource build() {
             return new ShopResource(this);

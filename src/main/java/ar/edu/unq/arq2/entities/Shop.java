@@ -14,10 +14,7 @@ public class Shop {
     private String address;
     private String location;
 
-
-    public Shop() {
-    }
-
+    public Shop() {}
 
     public static Builder newShop() {
         return new Builder();
@@ -80,8 +77,6 @@ public class Shop {
         this.location = location;
     }
 
-
-
     public static final class Builder {
         private String id;
         private Double latitude;
@@ -121,13 +116,8 @@ public class Shop {
             return this;
         }
 
-
         public Shop build() {
             return new Shop(this);
         }
-
     }
-
-
-
 }

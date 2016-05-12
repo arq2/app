@@ -10,11 +10,11 @@ import static java.util.stream.Collectors.toList;
 
 public class ShopResourceConverter {
 
-
     public ShopResource convert(Shop shop){
         return newShopResource()
                 .id(shop.getId())
                 .name(shop.getName())
+                .location(shop.getLocation())
                 .longitude(shop.getLongitude())
                 .latitude(shop.getLatitude())
                 .address(shop.getAddress())
