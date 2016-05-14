@@ -10,3 +10,5 @@ ENTRYPOINT ["java", "-jar", "/app-0.0.2-jar-with-dependencies.jar"]
 # TODO solucionar problemas de ClassNotFound al correr
 # TODO configurar variables de entorno
 # TODO levantar el server
+
+EXPOSE 3000

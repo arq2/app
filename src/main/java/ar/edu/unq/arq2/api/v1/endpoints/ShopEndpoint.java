@@ -35,12 +35,36 @@ public class ShopEndpoint {
     @Inject
     private ShopConverter shopConverter;
 
+
+    private int LIMIT = 50;
+
+    private int OFFSET = 0;
+
+    private int validarLimit(Integer limit){
+        if(limit > this.LIMIT || limit <=0 || limit == null)
+            return this.LIMIT;
+
+        return limit;
+    }
+
+    private int validarOffset(Integer offset){
+
+        if( offset <0 || offset == null)
+            return this.OFFSET;
+
+        return offset;
+
+    }
+
     @GET
-    public Response findAll(@QueryParam("offset") int offset, @QueryParam("limit") int limit) {
+    public Response findAll(@QueryParam("offset") Integer offset, @QueryParam("limit") Integer limit) {
+        int nuevolimit = validarLimit(limit);
+
+        int nuevoOffset =validarOffset(offset);
         Long count = repository.count();
-        List<Shop> shops = repository.findAll(offset, limit);
+        List<Shop> shops = repository.findAll(nuevoOffset, nuevolimit);
         List<ShopResource> resources = shopResourceConverter.convert(shops);
-        return ok(paginate(resources, new Paging(offset, limit, count))).build();
+        return ok(paginate(resources, new Paging(nuevoOffset, nuevolimit, count))).build();
     }
 
     @GET

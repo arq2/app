@@ -22,7 +22,7 @@ import static ar.edu.unq.arq2.api.PaginatedResponse.paginate;
 import static javax.ws.rs.core.Response.*;
 
 @Produces("application/json")
-@Path("/v1/found_prices")
+@Path("/v1/found-prices")
 @ApplicationScoped
 public class FoundPricesEndpoint {
 
@@ -58,6 +58,6 @@ public class FoundPricesEndpoint {
     @POST
     public Response create(@NotNull @Valid FoundPriceResource foundPriceResource) throws URISyntaxException {
         FoundPrice foundPrice = repository.save(foundPriceConverter.convert(foundPriceResource));
-        return created(new URI("/api/v1/found_prices/" + foundPrice.getId())).build();
+        return created(new URI("/api/v1/found-prices/" + foundPrice.getId())).build();
     }
 }
