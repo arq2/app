@@ -6,12 +6,16 @@ import ar.edu.unq.arq2.api.v1.resources.Paging;
 import ar.edu.unq.arq2.api.v1.resources.ShopResource;
 import ar.edu.unq.arq2.entities.Shop;
 import ar.edu.unq.arq2.entities.ShopRepository;
+import com.newrelic.agent.deps.org.apache.http.client.utils.URIBuilder;
+import org.glassfish.jersey.message.internal.OutboundJaxrsResponse;
+import org.glassfish.jersey.message.internal.OutboundMessageContext;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -82,7 +86,8 @@ public class ShopEndpoint {
     @POST
     public Response create(@NotNull @Valid ShopResource shopResource) throws URISyntaxException {
         Shop shop = repository.save(shopConverter.convert(shopResource));
-        return created(new URI("/api/v1/shops/" + shop.getId())).build();
+        String path = "/api/v1/shops/" + shop.getId();
+        return created(new URI(path)).build();
     }
 
     @PUT
