@@ -250,6 +250,8 @@ common: &default_settings
 development:
   <<: *default_settings
   app_name: arq2-app-dev
+  transaction_tracer:
+    record_sql: raw
 
 test:
   <<: *default_settings
@@ -261,6 +263,5 @@ production:
 staging:
   <<: *default_settings
   app_name: arq2-app-stg
-  license_key: 'c70496f1e3d4430f0c3e135db4c2d782aa74be3f'
   transaction_tracer:
     record_sql: raw
