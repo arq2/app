@@ -61,7 +61,13 @@ public class ShopEndpoint {
     }
 
     @GET
-    public Response findAll(@QueryParam("offset") Integer offset, @QueryParam("limit") Integer limit) {
+    public Response findAll(
+            @DefaultValue("0")
+            @QueryParam("offset")
+            Integer offset,
+            @DefaultValue("50")
+            @QueryParam("limit")
+            Integer limit) {
         int nuevolimit = validarLimit(limit);
 
         int nuevoOffset =validarOffset(offset);
