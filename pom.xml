@@ -169,6 +169,24 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-core</artifactId>
+            <version>${neo4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-embedded-driver</artifactId>
+            <version>${neo4j.version}</version>
+        </dependency>
+
         <!-- Dependencias agregadas para que el assembly genere el jar correctamente -->
         <dependency>
             <groupId>org.osgi</groupId>
@@ -303,5 +321,6 @@
         <scala.version>2.11.8</scala.version>
         <gatling.plugin.version>2.2.0</gatling.plugin.version>
         <gatling.version>2.2.1</gatling.version>
+        <neo4j.version>2.0.3</neo4j.version>
     </properties>
 </project>
