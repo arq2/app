@@ -56,4 +56,13 @@ class CrearUnShopYAgregarPrecios extends Simulation {
       rampUsers(10) over(5 seconds),
       constantUsersPerSec(20) during(15 seconds))
     .protocols(httpConf))
+
+// caso que empieza a fallar (4% errores)
+//
+//  setUp(scn
+//    .inject(
+//      atOnceUsers(50),
+//      rampUsers(50) over(1 seconds),
+//      constantUsersPerSec(500) during(15 seconds))
+//    .protocols(httpConf))
 }
