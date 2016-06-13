@@ -28,3 +28,8 @@ tail -f /var/log/mongodb/mongo3.log
 # 2016-06-13T19:46:42.314-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
 # server secundario elegido
 # 2016-06-13T19:46:54.214-0300 I REPL     [rsSync] transition to primary complete; database writes are now permitted
+#
+# los tiempos de respuesta de la aplicación no fueron muy diferentes respecto
+# del tiempo de transición de un server mongo a otro.
+# La herramienta de tests de carga sólo reporta respuestas con una granularidad
+# de un segundo
