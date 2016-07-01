@@ -5,7 +5,7 @@
     <groupId>ar.edu.unq.arq2</groupId>
     <artifactId>app</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>app</name>
 
     <distributionManagement>
@@ -281,14 +281,13 @@
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling.plugin.version}</version>
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>integration-test</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>execute</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
