@@ -6,6 +6,6 @@
         <weld:exclude name="net.**"/>
         <weld:exclude name="com.**"/>
         <weld:exclude name="javax.**"/>
-        <weld:exclude name="org.jboss.weld.**" />
+        <weld:exclude name="org.**" />
     </weld:scan>
 </beans>
