@@ -283,6 +283,7 @@
                 <version>${gatling.plugin.version}</version>
                 <executions>
                     <execution>
+                        <phase>test</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
