@@ -1,13 +1,11 @@
 <beans xmlns="http://java.sun.com/xml/ns/javaee"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:weld="http://jboss.org/schema/weld/beans">
 
     <weld:scan>
-        <!--<weld:exclude name="org.**"/>-->
-        <!--<weld:exclude name="javax.xml.**"/>-->
         <weld:exclude name="javassist.**"/>
         <weld:exclude name="net.**"/>
         <weld:exclude name="com.**"/>
         <weld:exclude name="javax.**"/>
+        <weld:exclude name="org.jboss.weld.**" />
     </weld:scan>
 </beans>
