@@ -50,12 +50,20 @@ class CrearUnShopYAgregarPrecios extends Simulation {
       .body(new StringBody("{\n   \"shop_id\": \"573cd27b612a8772df745c11\",\n   \"product_id\": \"7794626006968\",\n   \"price\": 122.18,\n   \"datetime\": \"2016-04-02T15:51:15-03:00\"\n}"))
       .asJSON)
 
-  setUp(scn
-    .inject(
-      atOnceUsers(10),
-      rampUsers(10) over(5 seconds),
-      constantUsersPerSec(20) during(15 seconds))
-    .protocols(httpConf))
+// caso de ejemplo básico
+//  setUp(scn
+//    .inject(
+//      atOnceUsers(10),
+//      rampUsers(10) over(5 seconds),
+//      constantUsersPerSec(20) during(15 seconds))
+//    .protocols(httpConf))
+
+    setUp(scn
+      .inject(
+        atOnceUsers(20),
+        rampUsersPerSec(20) to (50) during(2 minutes),
+        constantUsersPerSec(50) during(8 minutes))
+      .protocols(httpConf))
 
 // caso que empieza a fallar (4% errores)
 //
