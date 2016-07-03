@@ -276,22 +276,40 @@
                     <scalaVersion>${scala.version}</scalaVersion>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>io.gatling</groupId>
-                <artifactId>gatling-maven-plugin</artifactId>
-                <version>${gatling.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>loadtest</id>
+            <activation>
+                <property>
+                    <name>loadtest</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.gatling</groupId>
+                        <artifactId>gatling-maven-plugin</artifactId>
+                        <version>${gatling.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <simulationClass>ar.edu.unq.arq2.api.CrearUnShopYAgregarPrecios</simulationClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
