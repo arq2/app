@@ -13,7 +13,7 @@ ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replic
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-2.sh docker-run-replica-set-2.sh
 RUN chmod +x docker-run*
 
-ARG appversion=0.0.6
+ARG appversion=0.0.7
 ADD https://bintray.com/arq2ag/maven/download_file?file_path=ar%2Fedu%2Funq%2Farq2%2Fapp%2F$appversion%2Fapp-$appversion-jar-with-dependencies.jar app-jar-with-dependencies.jar
 
 EXPOSE 8080
