@@ -8,9 +8,14 @@ El test realiza lo siguiente:
 * Hace un ramp up de 20 usuarios a 50 usuarios por segundo en los 2 primeros minutos
 * Mantiene 50 usuarios por segundo en los próximos 8 minutos
 
+### Parámetros generales
+
+* Memoria RAM: 2G (cualquier cantidad menor detenía el server java)
+* Swap: 0B
+
 ### Build
 
-* Imagen Docker: `docker build -t arq2ag/mirar-para-cuidar --build-arg appversion=0.0.6 .`
+* Imagen Docker: `docker build -t arq2ag/mirar-para-cuidar --build-arg appversion=0.0.7 .`
 * Máquina host: `mvn clean package`
 
 ### Casos de prueba

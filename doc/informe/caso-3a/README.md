@@ -2,7 +2,7 @@
 
 ### Ejecución
 
-* Docker: `docker run -i --memory-swap 500M --memory 500M --cpuset-cpus="0" -p 8080:8080 --net=host -t arq2ag/mirar-para-cuidar ./docker-run-replica-set-2.sh`
+* Docker: `docker run -i --memory-swap 2G --memory 2G --cpuset-cpus="0" -p 8080:8080 --net=host -t arq2ag/mirar-para-cuidar ./docker-run-replica-set-2.sh`
 * Máquina host: `mvn gatling:execute -Dloadtest=true`
 
 ### Resultados
