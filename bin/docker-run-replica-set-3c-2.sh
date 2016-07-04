@@ -23,3 +23,5 @@ kill -9 $pmaster
 sleep 2m
 
 mongod --port 27017 --dbpath /data/db/rs0/mongo1/ --replSet rs0 --logpath /var/log/mongodb/mongo1.log &
+
+cat

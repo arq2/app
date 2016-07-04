@@ -19,3 +19,5 @@ java -javaagent:/newrelic.jar -jar /app-jar-with-dependencies.jar &
 sleep 3m
 
 kill -9 $pslave1
+
+cat
