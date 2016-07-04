@@ -13,8 +13,8 @@ ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replic
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-2.sh docker-run-replica-set-2.sh
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-3a.sh docker-run-replica-set-3a.sh
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-3b.sh docker-run-replica-set-3b.sh
-ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-3c.sh docker-run-replica-set-3c-1.sh
-ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-3c.sh docker-run-replica-set-3c-2.sh
+ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-3c-1.sh docker-run-replica-set-3c-1.sh
+ADD https://bintray.com/arq2ag/generic/download_file?file_path=docker-run-replica-set-3c-2.sh docker-run-replica-set-3c-2.sh
 RUN chmod +x docker-run*
 
 ARG appversion=0.0.7
