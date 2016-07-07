@@ -1,0 +1,10 @@
+{
+  "simulation": "ar.edu.unq.arq2.api.CrearUnShopYAgregarPrecios",
+  "simulationId": "crearunshopyagregarprecios",
+  "start": 1467660609498,
+  "description": "null",
+  "scenarios": ["Scenario Name"],
+  "assertions": [
+
+  ]
+}
