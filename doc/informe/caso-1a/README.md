@@ -9,8 +9,9 @@
 
 ### Resultados
 
-* Iniciado  : 7/9 2:54 am
-* Finalizado: 7/9 3:55 am
+* Boot app  : 07/07 2:50 am
+* Iniciado  : 07/07 2:54 am
+* Finalizado: 07/07 3:55 am
 * Simulación Gatling \#1467870860226
 
 ### Análisis
@@ -22,3 +23,7 @@ no bajó.
 MongoDB no consumió más de 100MB de memoria en el pico de carga.
 
 Consumo de CPU fue alto al inicio (booteo de la aplicación), pero muy aceptable durante la carga (25% aprox).
+
+<iframe src="https://rpm.newrelic.com/public/charts/62mupi2SnzT" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+<iframe src="https://rpm.newrelic.com/public/charts/gIfnf7EedJF" width="500" height="300" scrolling="no" frameborder="no"></iframe>
