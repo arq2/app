@@ -31,6 +31,11 @@ El test realiza lo siguiente:
 * [Caso 3a](caso-3a/README.md)
 * [Caso 3b](caso-3b/README.md)
 * [Caso 3c](caso-3c/README.md)
+* [Caso 3c](caso-3d/README.md)
+
+### Experimentos alternativos
+
+#### Parámetros de la VM (TODO)
 
 ### Cosas a ver (TODO)
 

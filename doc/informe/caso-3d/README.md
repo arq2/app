@@ -1,6 +1,6 @@
 ## Prueba de stress con un CPU y 3 nodos de MongoDB en réplica
 
-(eliminando un nodo Master durante el tope de carga y luego reintegrándolo al Cluster inmediatamente)
+(eliminando un nodo Master durante el tope de carga y luego reintegrándolo al Cluster después de varios minutos)
 
 ### Ejecución
 

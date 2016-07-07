@@ -11,7 +11,8 @@
 
 * Boot app  : 07/07 2:50 am
 * Iniciado  : 07/07 2:54 am
-* Finalizado: 07/07 3:55 am
+* Finalizado: 07/07 3:05 am
+* Stop app  : 07/07 3:10 am
 * Simulación Gatling \#1467870860226
 
 ### Análisis

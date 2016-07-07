@@ -10,8 +10,10 @@
 
 ### Resultados
 
+* Boot app  : dd/mm hh:mm am/pm
 * Iniciado  : dd/mm hh:mm am/pm
 * Finalizado: dd/mm hh:mm am/pm
+* Stop app  : dd/mm hh:mm am/pm
 * Simulación Gatling \#xxx
 
 ### Análisis
