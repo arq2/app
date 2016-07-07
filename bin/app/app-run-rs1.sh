@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-mongod &
-
 /etc/init.d/newrelic-sysmond start
 
-export MONGO_URI=mongodb://localhost:27017/app_dev
+export MONGO_URI=mongodb://mpc.mongo.one:27017,mpc.mongo.two:27017/app_dev
 
 java -javaagent:/newrelic.jar -jar /app-jar-with-dependencies.jar
