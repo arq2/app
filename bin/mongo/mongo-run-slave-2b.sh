@@ -2,4 +2,4 @@
 
 /etc/init.d/newrelic-sysmond start
 
-mongod --port 27017
+mongod --port 27019 --replSet mpc2

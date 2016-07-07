@@ -2,7 +2,8 @@
 
 /etc/init.d/newrelic-sysmond start
 
-mongod --replSet mpc2 --logpath /var/log/mongodb/mongo.log &
+mongod --port 27017 --replSet mpc2 --logpath /var/log/mongodb/mongo.log &
 sleep 5
-mongo --eval 'rs.initiate({_id:"mpc2", members: [{"_id":1, "host":"mpc.mongo.one:27017"}, {"_id":2, "host":"mpc.mongo.two:27017"}, {"_id":3, "host":"mpc.mongo.three:27017"}]})'
+mongo --eval 'rs.initiate({_id:"mpc2", members: [{"_id":1, "host":"localhost:27017"}, {"_id":2, "host":"localhost:27018"}, {"_id":3, "host":"localhost:27019"}]})'
+sleep 2
 tail -f /var/log/mongodb/mongo.log

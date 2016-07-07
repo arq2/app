@@ -2,5 +2,4 @@
 
 /etc/init.d/newrelic-sysmond start
 
-mongod --replSet mpc1 --logpath /var/log/mongodb/mongo.log &
-tail -f /var/log/mongodb/mongo.log
+mongod --port 27018 --replSet mpc1

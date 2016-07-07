@@ -11,5 +11,6 @@ ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-standal
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-master-1.sh mongo-run-master-1.sh
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-slave-1.sh mongo-run-slave-1.sh
 ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-master-2.sh mongo-run-master-2.sh
-ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-slave-2.sh mongo-run-slave-2.sh
+ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-slave-2a.sh mongo-run-slave-2a.sh
+ADD https://bintray.com/arq2ag/generic/download_file?file_path=mongo-run-slave-2b.sh mongo-run-slave-2b.sh
 RUN chmod +x mongo-run*
