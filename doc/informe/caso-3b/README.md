@@ -14,11 +14,34 @@
 
 ### Resultados
 
-* Boot app  : dd/mm hh:mm
-* Iniciado  : dd/mm hh:mm
-* Eliminado nodo: dd/mm hh:mm
-* Finalizado: dd/mm hh:mm
-* Stop app  : dd/mm hh:mm
-* Simulación Gatling \#xxx
+* Boot app  : 10/07 11:00
+* Iniciado  : 10/07 11:08
+* Eliminado nodo: 10/07 11:13 (44% de la prueba)
+* Finalizado: 10/07 11:18
+* Stop app  : 10/07 11:30
+* Simulación Gatling \#1468159699391
+
+web transactions
+<iframe src="https://rpm.newrelic.com/public/charts/45aqmfwytez" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+GC
+<iframe src="https://rpm.newrelic.com/public/charts/cplneOkIS3R" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+Avg mem usage
+<iframe src="https://rpm.newrelic.com/public/charts/80sdlAou4gl" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+mem usage
+<iframe src="https://rpm.newrelic.com/public/charts/elnpube8fbB" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+cpu usage
+<iframe src="https://rpm.newrelic.com/public/charts/fVzhr8QJ9s2" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+throughput
+<iframe src="https://rpm.newrelic.com/public/charts/1Mclp9qsvYA" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+response time
+<iframe src="https://rpm.newrelic.com/public/charts/2D3Or912K9J" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
 ### Análisis
+
+* Tardó 13 segundos en hacer la transición de slave a master
