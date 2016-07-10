@@ -14,11 +14,11 @@
 
 ### Resultados
 
-* Boot app  : dd/mm hh:mm am/pm
-* Iniciado  : dd/mm hh:mm am/pm
-* Eliminado nodo: dd/mm hh:mm am/pm
-* Finalizado: dd/mm hh:mm am/pm
-* Stop app  : dd/mm hh:mm am/pm
+* Boot app  : dd/mm hh:mm
+* Iniciado  : dd/mm hh:mm
+* Eliminado nodo: dd/mm hh:mm
+* Finalizado: dd/mm hh:mm
+* Stop app  : dd/mm hh:mm
 * Simulación Gatling \#xxx
 
 ### Análisis
