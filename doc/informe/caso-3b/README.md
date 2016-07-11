@@ -51,4 +51,5 @@ Response time
 
 ### Análisis
 
-* Tardó 13 segundos en hacer la transición de slave a master
+* Tardó 13 segundos en hacer la transición de slave a master, esto tiene que ver con la configuración por defecto del
+replica set de mongo. La aplicación no tardó un tiempo significativo extra en volver a funcionar.  

@@ -34,6 +34,7 @@ El test realiza lo siguiente:
 * [Caso 3c](caso-3c/README.md)
 * [Caso 3c](caso-3d/README.md)
 * [Caso 3d](caso-3d/README.md)
+* [Caso 3e](caso-3e/README.md)
 
 ### Conclusiones generales
 
@@ -50,4 +51,12 @@ se detenían, y por ende el test de Gatling terminaba sin éxito. Probamos con e
 de Docker, pero de esa manera la máquina entera donde corrían los contenedores se colgaba.
 * El servidor web que utilizamos (Undertow) es bastante pesado en términos de recursos de memoria. Como puede
 observarse en los gráficos de cada caso de prueba, sólo el booteo del servidor consume más de 500MB. Esta es una de
-las cosas que deberíamos haber tenido en cuenta al iniciar la investigación del web server.
+las cosas que deberíamos haber tenido en cuenta en la elección del web server. No es nada bueno ni malo per se,
+pero si disponemos de pocos recursos puede ser un problema.
+* El tiempo de respuesta fue bastante rápido en todos los diferentes endpoints, con lo cual cuesta ver diferencias
+considerables entre ellos. En el caso 1b) incluimos un gráfico con las diferentes operaciones de BD de cada endpoint.
+* Ocurrieron más ciclos de GC en los casos en los que había réplicas, ya que al ser el tiempo de respuesta mayor, se
+"quedaban" más objetos en memoria por más tiempo.
+* El tiempo de respuesta aumentó (no a nivel aplicación, sino a nivel base de datos) cuando la réplica estaba
+reconfigurándose. De todos modos, necesitamos un volumen de datos más grande, o queries más complejas para
+determinar si esto es realmente un problema de performance.
