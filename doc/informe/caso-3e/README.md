@@ -70,8 +70,6 @@ Response time
 ![Response time](imagenes/response-time.png)
 <iframe src="https://rpm.newrelic.com/public/charts/5AaPXU2aiW2" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-### Análisis
-
 Este cambio en la configuración produjo la misma cantidad de errores que en los casos anteriores, que es muy poca
 pero si se apunta al High Availability, es bueno ver que una medida que a priori prometía ser buena, en realidad
 no hacía variar el resultado.

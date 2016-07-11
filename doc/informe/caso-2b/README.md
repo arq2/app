@@ -45,4 +45,3 @@ Response time
 ![Response time](imagenes/response-time.png)
 <iframe src="https://rpm.newrelic.com/public/charts/75Ti1Iw7aRo" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-### Análisis
