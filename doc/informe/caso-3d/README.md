@@ -17,12 +17,36 @@
 
 ### Resultados
 
-* Boot app  : dd/mm hh:mm
-* Iniciado  : dd/mm hh:mm
-* Eliminado nodo: dd/mm hh:mm
-* Reincorporado nodo: dd/mm hh:mm
-* Finalizado: dd/mm hh:mm
-* Stop app  : dd/mm hh:mm
-* Simulación Gatling \#xxx
+* Boot app  : 10/07 14:28
+* Iniciado  : 10/07 14:34
+* Eliminado nodo: 10/07 14:39
+* Reincorporado nodo: 10/07 14:44
+* Finalizado: 10/07 14:45
+* Stop app  : 10/07 14:48
+* Simulación Gatling \#1468172056977
+
+web transactions
+<iframe src="https://rpm.newrelic.com/public/charts/1OFzqFTsvMM" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+error rate
+<iframe src="https://rpm.newrelic.com/public/charts/eehU9uvC5bs" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+GC
+<iframe src="https://rpm.newrelic.com/public/charts/axLTW0KI7Rs" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+Avg mem usage
+<iframe src="https://rpm.newrelic.com/public/charts/7i3Vxw3p7bq" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+mem usage
+<iframe src="https://rpm.newrelic.com/public/charts/1kR21OiIV5s" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+cpu usage
+<iframe src="https://rpm.newrelic.com/public/charts/agCrtmlrUrU" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+throughput
+<iframe src="https://rpm.newrelic.com/public/charts/2hIx9lyF2oT" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
+response time
+<iframe src="https://rpm.newrelic.com/public/charts/bF8e3guVnVm" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
 ### Análisis
