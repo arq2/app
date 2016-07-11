@@ -9,32 +9,36 @@
 
 ### Resultados
 
-* Boot app  : 07/07 9:14 am
-* Iniciado  : 07/07 9:23 am
-* Finalizado: 07/07 9:34 am
-* Stop app  : 07/07 9:40 am
+* Boot app  : 07/07 09:14
+* Iniciado  : 07/07 09:23
+* Finalizado: 07/07 09:34
+* Stop app  : 07/07 09:40
 * Simulación Gatling \#1467894207189
 
 #### Gráficos
 
 GC
+![GC](imagenes/gc.png)
 <iframe src="https://rpm.newrelic.com/public/charts/l4nDYEavmrx" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-Avg mem usage
+Average memory usage
+![Average memory usage](imagenes/avg-mem-usage.png)
 <iframe src="https://rpm.newrelic.com/public/charts/egSQKGOY6Hq" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-mem usage
+Memory usage
+![Memory usage](imagenes/mem-usage.png)
 <iframe src="https://rpm.newrelic.com/public/charts/QzLjy2QBBb" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-cpu usage
+CPU usage
+![CPU usage](imagenes/cpu-usage.png)
 <iframe src="https://rpm.newrelic.com/public/charts/aIabwBu9R32" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-throughput
+Throughput
+![Throughput](imagenes/throughput.png)
 <iframe src="https://rpm.newrelic.com/public/charts/9q0IvIGjUQO" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-response time
+Response time
+![Response time](imagenes/response-time.png)
 <iframe src="https://rpm.newrelic.com/public/charts/gtg2KSdAxEH" width="500" height="300" scrolling="no" frameborder="no"></iframe>
-
-
 
 ### Análisis

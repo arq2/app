@@ -9,11 +9,23 @@
 
 ### Resultados
 
-* Boot app  : 07/07 2:50 am
-* Iniciado  : 07/07 2:54 am
-* Finalizado: 07/07 3:05 am
-* Stop app  : 07/07 3:10 am
+* Boot app  : 07/07 02:50
+* Iniciado  : 07/07 02:54
+* Finalizado: 07/07 03:05
+* Stop app  : 07/07 03:10
 * Simulación Gatling \#1467870860226
+
+CPU - Memory usage
+![Memory usage](imagenes/cpu-mem-usage.png)
+
+GC
+![GC](imagenes/gc.png)
+
+Average memory usage
+![Average memory usage](imagenes/avg-mem-usage.png)
+
+Memoria tomada por el proceso de Java
+![Web transactions](imagenes/mem-java-process.png)
 
 ### Análisis
 
@@ -21,10 +33,4 @@ Consumo de memoria de la aplicación subió más allá de que la carga se mantuv
 Claramente hay una optimización por hacer en la aplicación. Incluso después de finalizado el test el consumo
 no bajó.
 
-MongoDB no consumió más de 100MB de memoria en el pico de carga.
 
-Consumo de CPU fue alto al inicio (booteo de la aplicación), pero muy aceptable durante la carga (25% aprox).
-
-<iframe src="https://rpm.newrelic.com/public/charts/62mupi2SnzT" width="500" height="300" scrolling="no" frameborder="no"></iframe>
-
-<iframe src="https://rpm.newrelic.com/public/charts/gIfnf7EedJF" width="500" height="300" scrolling="no" frameborder="no"></iframe>

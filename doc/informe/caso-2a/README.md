@@ -18,26 +18,32 @@
 
 #### Gráficos
 
-web transactions
+Web transactions
+![Web transactions](imagenes/web-transactions.png)
 <iframe src="https://rpm.newrelic.com/public/charts/1W4DzjwNHS3" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
 GC
+![GC](imagenes/gc.png)
 <iframe src="https://rpm.newrelic.com/public/charts/e6urh5a2jhH" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-Avg mem usage
+Average memory usage
+![Average memory usage](imagenes/avg-mem-usage.png)
 <iframe src="https://rpm.newrelic.com/public/charts/c9i7uHm5ijF" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-mem usage
+Memory usage
+![Memory usage](imagenes/mem-usage.png)
 <iframe src="https://rpm.newrelic.com/public/charts/cn754EhlhJJ" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-cpu usage
+CPU usage
+![CPU usage](imagenes/cpu-usage.png)
 <iframe src="https://rpm.newrelic.com/public/charts/8OQJsaZhZ5Y" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-throughput
+Throughput
+![Throughput](imagenes/throughput.png)
 <iframe src="https://rpm.newrelic.com/public/charts/dXnDCE6xCyE" width="500" height="300" scrolling="no" frameborder="no"></iframe>
 
-response time
+Response time
+![Response time](imagenes/response-time.png)
 <iframe src="https://rpm.newrelic.com/public/charts/i4QRFxIrwLT" width="500" height="300" scrolling="no" frameborder="no"></iframe>
-
 
 ### Análisis

@@ -10,7 +10,8 @@ El test realiza lo siguiente:
 
 ### Parámetros generales
 
-* Memoria RAM: 2G (cualquier cantidad menor detenía el server java)
+* Memoria RAM de aplicación: 1200M (cualquier cantidad menor detenía el server java)
+* Memoria RAM de los nodos BD: 200M
 * CPU: 2 x Intel i5-3120 2.50 GHz
 * Swap: 0B
 * New Relic: https://rpm.newrelic.com/accounts/1274131/applications/19340847
@@ -32,20 +33,21 @@ El test realiza lo siguiente:
 * [Caso 3b](caso-3b/README.md)
 * [Caso 3c](caso-3c/README.md)
 * [Caso 3c](caso-3d/README.md)
+* [Caso 3d](caso-3d/README.md)
 
-### Experimentos alternativos
+### Conclusiones generales
 
-#### Parámetros de la VM (TODO)
-
-### Cosas a ver (TODO)
-
-- uso de CPU
-- uso de memoria
-- comportamiento de la JVM con diferentes GC (mark and sweep vs. G1)
-+ requests per minute
-+ tiempos de respuesta (promedio/percentiles)
-- IO red + latencia
-- cuanto cuesta la réplica?
-- puedo minimizar el impacto de perder el master?
-
-+: los provee gatling
+* Consumo de CPU fue alto al inicio (booteo de la aplicación), pero muy aceptable durante la carga (25% aprox).
+* MongoDB no consumió más de 100MB de memoria en el pico de carga, incluso trabajando en réplica.
+* No se observa una diferencia considerable en la performance de la aplicación cuando se utilizan más núcleos
+de CPU, ya que hay muy poco "procesamiento" (búsqueda de shops) y mucho uso de I/O.
+* Consideramos que, por el tipo de queries que realizamos, no llegamos a testear exhaustivamente cómo se comporta
+una réplica, hay una cosa muy importante que se puede monitorear, que es el [replication lag](http://blog.mlab.com/2013/03/replication-lag-the-facts-of-life/)
+y en nuestra aplicación no tenemos muchas queries complejas
+* La carga que le aplicamos a los nodos, en cantidad de requests, podría haber sido mayor, para poder provocar
+errores más interesantes. Pero hacer eso dificultaba el monitoreo de los resultados, ya que los nodos de Docker
+se detenían, y por ende el test de Gatling terminaba sin éxito. Probamos con el parámetro de `--oom-disable-killer`
+de Docker, pero de esa manera la máquina entera donde corrían los contenedores se colgaba.
+* El servidor web que utilizamos (Undertow) es bastante pesado en términos de recursos de memoria. Como puede
+observarse en los gráficos de cada caso de prueba, sólo el booteo del servidor consume más de 500MB. Esta es una de
+las cosas que deberíamos haber tenido en cuenta al iniciar la investigación del web server.
