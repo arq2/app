@@ -314,7 +314,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>2.22.2</jersey.version>
-        <undertow.version>2.2.11.Final</undertow.version>
+        <undertow.version>2.2.15.Final</undertow.version>
         <weld.version>2.3.3.Final</weld.version>
         <morphia.version>1.1.1</morphia.version>
         <jackson.version>2.12.6.1</jackson.version>
